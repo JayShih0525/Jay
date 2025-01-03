@@ -56,8 +56,10 @@
                         console.log("Data read successfully:", data);
 
                         // Convert data to an array and sort by "move"
-                        const sortedData = Object.values(data).sort((a, b) => a.move - b.move).slice(0, 100);
-    
+                        // const sortedData = Object.values(data).sort((a, b) => a.move - b.move).slice(0, 100);
+                        const sortedData = Object.values(data).sort((a, b) => (a.move - a.best) - (b.move - b.best)).slice(0, 100);
+
+
                         // Update the table with sorted data
                         updateRankingTable(sortedData);
                     } else {
